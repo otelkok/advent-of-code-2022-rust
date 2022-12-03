@@ -53,7 +53,7 @@ pub mod part2_2{
     pub fn evaluate_strategy_for_match_result(move_list : Vec<String>) -> u64{
         let mut sum = 0;
         for line in move_list{
-            let mut characters = line.split(" ").collect::<Vec<&str>>();
+            let characters = line.split(" ").collect::<Vec<&str>>();
             let (opponent,result) = (RPSChoice::from_symbol(characters[0]),MatchResult::from_symbol(characters[1]));
             let player = RPSChoice::get_move_for_match_result(&opponent, &result);
             sum +=  player.get_score() + result.get_score();
