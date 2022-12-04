@@ -5,6 +5,8 @@
 #[path = "day_02/part2_2.rs"] mod part2_2;
 #[path = "day_03/part3_1.rs"] mod part3_1;
 #[path = "day_03/part3_2.rs"] mod part3_2;
+#[path = "day_04/part4_1.rs"] mod part4_1;
+#[path = "day_04/part4_2.rs"] mod part4_2;
 
 #[test]
 fn control_day1_a(){
@@ -39,6 +41,7 @@ fn control_day3_a(){
     }
     assert_eq!(priority_sum,7742);
 }
+#[test]
 fn control_day3_b(){
     let lines = common::common::read_file_as_string(&"Input/input_day3.txt".to_string());
     let mut rucksacks: Vec<part3_1::part3_1::Rucksack> = Vec::new();
@@ -52,6 +55,20 @@ fn control_day3_b(){
     let sum = part3_1::part3_1::priority(badges);
     assert_eq!(sum,2276);
 }
+#[test]
+fn control_day4_a(){
+    let lines = common::common::read_file_as_string(&"Input/input_day4.txt".to_string());
+    let count = part4_1::part4_1::count_containing_pairs(part4_1::part4_1::parse_input(lines));
+    assert_eq!(count,530);
+}
+#[test]
+fn control_day4_b(){
+    let lines = common::common::read_file_as_string(&"Input/input_day4.txt".to_string());
+    let count = part4_2::part4_2::count_overlapping_pairs(part4_1::part4_1::parse_input(lines));
+    assert_eq!(count,903);
+}
 fn main() {
-    
+    let lines = common::common::read_file_as_string(&"Input/input_day4.txt".to_string());
+    let count = part4_2::part4_2::count_overlapping_pairs(part4_1::part4_1::parse_input(lines));
+    println!("{}",count);
 }
